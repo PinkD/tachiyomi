@@ -8,6 +8,7 @@ import eu.kanade.tachiyomi.network.interceptor.UserAgentInterceptor
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import socks5Proxy
 import uy.kohesive.injekt.injectLazy
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -43,6 +44,7 @@ class NetworkHelper(context: Context) {
                 PREF_DOH_ADGUARD -> builder.dohAdGuard()
             }
 
+            builder.socks5Proxy()
             return builder
         }
 

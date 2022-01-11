@@ -84,10 +84,6 @@ class SettingsMainController : SettingsController() {
         }
     }
 
-    private fun navigateTo(controller: SettingsController) {
-        router.pushController(controller.withFadeTransaction())
-    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         // Inflate menu
         inflater.inflate(R.menu.settings_main, menu)

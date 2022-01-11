@@ -182,6 +182,10 @@ class SettingsAdvancedController : SettingsController() {
                     true
                 }
             }
+            preference {
+                titleRes = R.string.pref_socks5_proxy
+                onClick { navigateTo(SettingsProxyController()) }
+            }
         }
 
         preferenceCategory {
