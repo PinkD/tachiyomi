@@ -58,6 +58,7 @@ object SettingsDownloadScreen : SearchableSettings {
                 allCategories = allCategories,
             ),
             getDownloadAheadGroup(downloadPreferences = downloadPreferences),
+            getDownloadErrorGroup(downloadPreferences = downloadPreferences),
         )
     }
 
@@ -180,6 +181,28 @@ object SettingsDownloadScreen : SearchableSettings {
                     },
                 ),
                 Preference.PreferenceItem.InfoPreference(stringResource(MR.strings.download_ahead_info)),
+            ),
+        )
+    }
+
+    @Composable
+    private fun getDownloadErrorGroup(
+        downloadPreferences: DownloadPreferences,
+    ): Preference.PreferenceGroup {
+        return Preference.PreferenceGroup(
+            title = stringResource(MR.strings.download_error_handling),
+            preferenceItems = listOf(
+                Preference.PreferenceItem.ListPreference(
+                    pref = downloadPreferences.ignoreDownloadErrorPages(),
+                    title = stringResource(MR.strings.ignore_download_error_pages),
+                    entries = listOf(0, 1, 3, 5, 10).associateWith {
+                        if (it == 0) {
+                            stringResource(MR.strings.disabled)
+                        } else {
+                            pluralStringResource(MR.plurals.ignore_download_error_pages, count = it, it)
+                        }
+                    },
+                ),
             ),
         )
     }

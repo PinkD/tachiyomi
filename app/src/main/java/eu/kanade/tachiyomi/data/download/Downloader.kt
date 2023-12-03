@@ -568,9 +568,9 @@ class Downloader(
     ): Boolean {
         // Page list hasn't been initialized
         val downloadPageCount = download.pages?.size ?: return false
-
+        val ignoreDownloadErrorPages = downloadPreferences.ignoreDownloadErrorPages().get()
         // Ensure that all pages have been downloaded
-        if (download.downloadedImages != downloadPageCount) {
+        if (download.downloadedImages + ignoreDownloadErrorPages < downloadPageCount) {
             return false
         }
 
@@ -585,11 +585,7 @@ class Downloader(
                 else -> true
             }
         }
-        if (downloadedImagesCount != downloadPageCount) {
-            return false
-        }
-
-        return true
+        return downloadedImagesCount + ignoreDownloadErrorPages >= downloadPageCount
     }
 
     /**

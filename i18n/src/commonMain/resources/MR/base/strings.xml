@@ -447,6 +447,8 @@
     <string name="save_chapter_as_cbz">Save as CBZ archive</string>
     <string name="split_tall_images">Split tall images</string>
     <string name="split_tall_images_summary">Improves reader performance</string>
+    <string name="download_error_handling">Download error handling</string>
+    <string name="ignore_download_error_pages">Ignore download error pages</string>
 
     <!-- Tracking section -->
     <string name="tracking_guide">Tracking guide</string>

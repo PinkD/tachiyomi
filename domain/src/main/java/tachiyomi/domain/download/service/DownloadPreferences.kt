@@ -42,4 +42,9 @@ class DownloadPreferences(
         "download_new_categories_exclude",
         emptySet(),
     )
+
+    fun ignoreDownloadErrorPages() = preferenceStore.getInt(
+        "ignore_download_error_pages",
+        0,
+    )
 }
